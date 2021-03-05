@@ -4,16 +4,18 @@ Crie um módulo juros.js, e exporte dele uma função jurosSimples que recebe C 
 i (juros em decimal. ex: 3,5% = 0.035) e t (tempo). E retorne o juros simples do período (C * i * t ).
 */
 
-const jurosSimples = (C, i, t) => C * i * t
-
+function jurosSimples(C, i, t) {
+  return C * i * t
+}
 
 /*
 ===== Exercício 2: Montante com Juros Simples =====
-Crie uma nova função que, dado as mesmas variáveis do exercício anterior,
+Crie uma nova função que, dadas as mesmas variáveis do exercício anterior,
 retorne o montante total C + juros simples.
 */
 
-const montanteJurosSimples = ({ jurosSimples }) => (C, i, t) => C + jurosSimples(C, i, t)
+const montanteJurosSimples = (C, i, t) => (C * i * t) + C
+// const montanteJurosSimples = ({ jurosSimples }) => (C, i, t) => C + jurosSimples(C, i, t)
 
 
 /*
@@ -37,6 +39,7 @@ const jurosCompostos = ({ montanteJurosCompostos }) => (C, i, t) => montanteJuro
 module.exports = {
   jurosSimples,
   montanteJurosSimples: montanteJurosSimples({ jurosSimples }),
+  montanteJurosSimples,
   montanteJurosCompostos,
   jurosCompostos: jurosCompostos({ montanteJurosCompostos }),
   pure: {

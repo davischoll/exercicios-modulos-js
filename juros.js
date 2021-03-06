@@ -14,18 +14,17 @@ Crie uma nova função que, dadas as mesmas variáveis do exercício anterior,
 retorne o montante total C + juros simples.
 */
 
-const montanteJurosSimples = (C, i, t) => (C * i * t) + C
-// const montanteJurosSimples = ({ jurosSimples }) => (C, i, t) => C + jurosSimples(C, i, t)
+const montanteJurosSimplesVersao1 = (C, i, t) => (C * i * t) + C
 
+const montanteJurosSimples = ({ jurosSimples }) => (C, i, t) => C + jurosSimples(C, i, t)
 
 /*
 ===== Exercício 3: Montante com Juros Compostos =====
 Crie uma função montanteJurosCompostos que recebe C (capital), i (juros em decimal) e t (tempo)
-e retorno o montante para o período, dado pela fórmula: M = C * (1 +  i) ^ t​.
+e retorna o montante para o período, dado pela fórmula: M = C * (1 +  i) ^ t​.
 */
 
-const montanteJurosCompostos = (C, i, t) => C * Math.pow((1+i), t)
-
+const montanteJurosCompostos = (C, i, t) => C * Math.pow((1 + i), t)
 
 /*
 ===== Exercício 4: juros compostos =====
@@ -38,8 +37,8 @@ const jurosCompostos = ({ montanteJurosCompostos }) => (C, i, t) => montanteJuro
 
 module.exports = {
   jurosSimples,
+  montanteJurosSimplesVersao1,
   montanteJurosSimples: montanteJurosSimples({ jurosSimples }),
-  montanteJurosSimples,
   montanteJurosCompostos,
   jurosCompostos: jurosCompostos({ montanteJurosCompostos }),
   pure: {
